@@ -6,11 +6,15 @@ import teamwork from '../images/teamwork.svg';
 import home2 from '../images/home2.png';
 import {About, Description, Image} from '../styles'
 import styled from 'styled-components';
+import {fade, scrollReveal} from '../pageTransition';
+import {useScroll} from'./useScroll';
+
 
 
 const ServicesSection = () => {
+    const [element, controls] = useScroll();
     return (
-        <About>
+        <Services variants={scrollReveal} animate={controls} initial="hidden" ref={element}>
             <Description>
                 <h2>High <span>quality</span> services</h2>
                 <Cards>
@@ -47,7 +51,7 @@ const ServicesSection = () => {
             <Image>
                 <img src={home2}/>
             </Image>
-        </About>
+        </Services>
     )
 }
 
@@ -60,10 +64,15 @@ const Services = styled(About)`
     width: 70%;
     padding: 2rem 0rem 4rem 0rem;
   }
+  
 `
 const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
+  padding-top: 5rem;
+  @media(max-width: 1300px) {
+    justify-content: center;
+  }
 `
 
 const Card = styled.div`

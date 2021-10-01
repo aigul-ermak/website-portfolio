@@ -12,12 +12,13 @@ const GlobalStyle = createGlobalStyle`
   body {
     background: #1b1b1b;
     font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
   }
 
   button {
     font-weight: bold;
     font-size: 1.1rem;
-    cursor: pointer;
+    cursor: pointer; 
     padding: 1rem 2rem;
     border: 3px solid #23d997;
     background: transparent;
@@ -56,6 +57,12 @@ const GlobalStyle = createGlobalStyle`
     color: #ccc;
     font-size: 1.4rem;
     line-height: 150%;
+  }
+  
+  html {
+    @media(max-width: 1700px) {
+      font-size: 75%;
+    } 
   }
   
 
